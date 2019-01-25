@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
                 //update RecyclerView later
-                noteAdapter.setNotes(notes);
+                noteAdapter.submitList(notes);
 
             }
         });
