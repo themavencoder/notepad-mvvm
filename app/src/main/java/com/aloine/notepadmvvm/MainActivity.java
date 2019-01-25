@@ -3,12 +3,14 @@ package com.aloine.notepadmvvm;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 private NoteViewModel noteViewModel;
 private NoteAdapter noteAdapter;
 private FloatingActionButton fab;
+private  RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +49,24 @@ private FloatingActionButton fab;
 
         }
     });
+
+    new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT| ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                noteViewModel.delete(noteAdapter.getNoteAt(viewHolder.getAdapterPosition()));
+            Toast.makeText(MainActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
+
+        }
+    }).attachToRecyclerView(recyclerView);
     }
 
     private void init() {
-        RecyclerView  recyclerView = findViewById(R.id.recycler_view);
+       recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         noteAdapter = new NoteAdapter();
