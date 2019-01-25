@@ -37,7 +37,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-         new MenuInflater(this).inflate(R.menu.add_note_menu,menu);
+         getMenuInflater().inflate(R.menu.add_note_menu,menu);
          return true;
     }
 
