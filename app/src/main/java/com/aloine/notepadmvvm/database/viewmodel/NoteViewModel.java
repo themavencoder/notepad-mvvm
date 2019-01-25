@@ -1,12 +1,12 @@
-package com.aloine.notepadmvvm.viewmodel;
+package com.aloine.notepadmvvm.database.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
-import com.aloine.notepadmvvm.model.Note;
-import com.aloine.notepadmvvm.repository.NoteRepository;
+import com.aloine.notepadmvvm.database.model.Note;
+import com.aloine.notepadmvvm.database.repository.NoteRepository;
 
 import java.util.List;
 

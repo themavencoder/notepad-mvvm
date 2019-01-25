@@ -1,17 +1,18 @@
 package com.aloine.notepadmvvm.database;
 
 
+import android.arch.persistence.db.SupportSQLiteDatabase;
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
 
-import com.aloine.notepadmvvm.contract.NoteDao;
-import com.aloine.notepadmvvm.model.Note;
+import com.aloine.notepadmvvm.database.contract.NoteDao;
+import com.aloine.notepadmvvm.database.model.Note;
 
-import androidx.annotation.NonNull;
-import androidx.room.Database;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
+
 
 @Database(entities = Note.class, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {

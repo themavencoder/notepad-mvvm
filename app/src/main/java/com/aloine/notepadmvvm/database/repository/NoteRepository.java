@@ -1,12 +1,12 @@
-package com.aloine.notepadmvvm.repository;
+package com.aloine.notepadmvvm.database.repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.aloine.notepadmvvm.contract.NoteDao;
+import com.aloine.notepadmvvm.database.contract.NoteDao;
 import com.aloine.notepadmvvm.database.NoteDatabase;
-import com.aloine.notepadmvvm.model.Note;
+import com.aloine.notepadmvvm.database.model.Note;
 
 import java.util.List;
 
