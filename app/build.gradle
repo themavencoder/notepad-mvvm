@@ -43,5 +43,4 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
 
-
 }
